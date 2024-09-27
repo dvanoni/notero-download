@@ -1,0 +1,11 @@
+name = "notero-download"
+main = "src/worker.js"
+compatibility_date = "2024-09-27"
+workers_dev = false
+
+[observability]
+enabled = true
+
+[[routes]]
+pattern = "download.notero.vanoni.dev"
+custom_domain = true
