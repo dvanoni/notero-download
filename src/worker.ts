@@ -37,12 +37,10 @@ async function fetchLatestDownloadUrl(): Promise<string | null> {
 }
 
 async function buildResponse(): Promise<Response> {
-  const downloadUrl = await fetchLatestDownloadUrl();
+  let downloadUrl = await fetchLatestDownloadUrl();
   if (!downloadUrl) {
-    return new Response('Failed to fetch latest release', {
-      headers: { 'Cache-Control': 'no-cache' },
-      status: 500,
-    });
+    console.warn('Failed to fetch latest release');
+    downloadUrl = 'https://github.com/dvanoni/notero/releases/latest';
   }
   let response = Response.redirect(downloadUrl, 302);
   response = new Response(response.body, response);
