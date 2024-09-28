@@ -55,7 +55,7 @@ export default {
       return new Response('Not found', { status: 404 });
     }
 
-    const cacheKey = new Request(url.toString());
+    const cacheKey = url.toString();
     const cache = caches.default;
 
     let response = await cache.match(cacheKey);
