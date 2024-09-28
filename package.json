@@ -7,12 +7,15 @@
   "license": "MIT",
   "repository": "github:dvanoni/notero-download",
   "scripts": {
+    "cf-typegen": "wrangler types --experimental-include-runtime",
     "deploy": "wrangler deploy",
     "dev": "wrangler dev",
     "start": "wrangler dev"
   },
   "devDependencies": {
+    "@octokit/openapi-types": "^22.2.0",
     "prettier": "3.3.3",
+    "typescript": "^5.6.2",
     "wrangler": "^3.78.10"
   }
 }
