@@ -1,4 +1,5 @@
 import type { components } from '@octokit/openapi-types';
+import { env } from 'cloudflare:workers';
 
 type Release = components['schemas']['release'];
 
@@ -22,6 +23,7 @@ async function fetchLatestDownloadUrl(): Promise<string | null> {
       },
       headers: {
         Accept: 'application/vnd.github+json',
+        Authorization: `Bearer ${env.GITHUB_TOKEN}`,
         'User-Agent': 'dvanoni/notero-download',
         'X-GitHub-Api-Version': '2022-11-28',
       },
